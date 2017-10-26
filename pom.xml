@@ -1,0 +1,190 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.touna.leeo</groupId>
+  <artifactId>storm-test</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>dailytest</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <kafka-client-version>0.10.1.1</kafka-client-version>
+    <slf4j.version>1.6.4</slf4j.version>
+    <commons-lang3.version>3.3.2</commons-lang3.version>
+	<commons-io.version>2.4</commons-io.version>
+	<commons-codec.version>1.9</commons-codec.version>
+  </properties>
+
+  <dependencies>
+    
+    <!-- https://mvnrepository.com/artifact/org.apache.storm/storm-core -->
+	<dependency>
+	    <groupId>org.apache.storm</groupId>
+	    <artifactId>storm-core</artifactId>
+	    <version>1.1.1</version>
+	    <scope>provided</scope>
+	    <exclusions>
+            <exclusion>   
+            <groupId>org.slf4j</groupId>  
+            <artifactId>slf4j-log4j12</artifactId>  
+          </exclusion>  
+          <exclusion>   
+            <groupId>log4j</groupId>  
+            <artifactId>log4j</artifactId>  
+          </exclusion>  
+         </exclusions>
+	</dependency>
+	  <!-- https://mvnrepository.com/artifact/org.apache.storm/storm-kafka -->
+	<dependency>
+	    <groupId>org.apache.storm</groupId>
+	    <artifactId>storm-kafka</artifactId>
+	    <version>1.1.1</version>
+	    <exclusions>
+            <exclusion>   
+            <groupId>org.slf4j</groupId>  
+            <artifactId>slf4j-log4j12</artifactId>  
+          </exclusion>  
+          <exclusion>   
+            <groupId>log4j</groupId>  
+            <artifactId>log4j</artifactId>  
+          </exclusion>  
+         </exclusions>
+	</dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients -->
+	<dependency>
+	    <groupId>org.apache.kafka</groupId>
+	    <artifactId>kafka-clients</artifactId>
+	    <version>0.10.1.1</version>
+	    <exclusions>
+             <exclusion>
+               <groupId>log4j</groupId>
+  				<artifactId>log4j</artifactId>
+             </exclusion>
+             <exclusion>
+                <groupId>org.slf4j</groupId>
+				<artifactId>slf4j-log4j12</artifactId>
+             </exclusion>
+         </exclusions>
+	</dependency>
+    <!-- kafka依赖  -->
+	<dependency>
+		<groupId>org.apache.kafka</groupId>
+		<artifactId>kafka_2.11</artifactId>
+		<version>${kafka-client-version}</version>
+		
+		<exclusions>
+            <exclusion>   
+            <groupId>org.slf4j</groupId>  
+            <artifactId>slf4j-log4j12</artifactId>  
+          </exclusion>  
+          <exclusion>   
+            <groupId>log4j</groupId>  
+            <artifactId>log4j</artifactId>  
+          </exclusion>  
+         </exclusions>
+		
+	</dependency>  
+     <!-- 日志处理 -->
+			<dependency>
+			    <groupId>org.slf4j</groupId>
+			    <artifactId>log4j-over-slf4j</artifactId>
+			    <version>1.7.21</version>
+			</dependency>
+		<dependency>
+		    <groupId>com.alibaba.rocketmq</groupId>
+		    <artifactId>rocketmq-client</artifactId>
+		    <version>3.4.6</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.alibaba.rocketmq/rocketmq-client -->
+		<dependency>
+		    <groupId>com.alibaba.rocketmq</groupId>
+		    <artifactId>rocketmq-client</artifactId>
+		    <version>3.4.6</version>
+		</dependency>
+				
+		<!-- <dependency>
+		    <groupId>org.apache.storm</groupId>
+		    <artifactId>storm-rocketmq</artifactId>
+		    <version>2.0.0-SNAPSHOT</version>
+		</dependency> -->
+		<!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+	<dependency>
+	    <groupId>com.alibaba</groupId>
+	    <artifactId>fastjson</artifactId>
+	    <version>1.2.37</version>
+	</dependency>
+ <!-- https://mvnrepository.com/artifact/javax.mail/mail -->
+		<dependency>
+		    <groupId>javax.mail</groupId>
+		    <artifactId>mail</artifactId>
+		    <version>1.4.7</version>
+		</dependency>			
+<!-- GENERAL UTILS begin -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${commons-lang3.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${commons-io.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>${commons-codec.version}</version>
+		</dependency>	
+		<!-- httpclient -->
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.5.2</version>
+		</dependency>
+			<dependency>
+	        <groupId>org.apache.httpcomponents</groupId>
+	        <artifactId>httpmime</artifactId>
+	        <version>4.5.2</version>
+	    </dependency>
+			
+			
+  </dependencies>
+  
+	<build>
+		<plugins>
+			<plugin>
+			  <groupId>org.apache.maven.plugins</groupId>
+			  <artifactId>maven-compiler-plugin</artifactId>
+			  <configuration>
+			    <source>1.7</source>
+			    <target>1.7</target>
+			  </configuration>
+			</plugin>
+			
+			<plugin>
+		    <groupId>org.apache.maven.plugins</groupId>
+		    <artifactId>maven-shade-plugin</artifactId>
+		    <version>2.4.1</version>
+		    <executions>
+		        <execution>
+		            <phase>package</phase>
+		            <goals>
+		                <goal>shade</goal>
+		            </goals>
+		            <configuration>
+		                <transformers>
+		                    <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+		                        <mainClass>com.touna.leeo.storm.StormKafka</mainClass>
+		                    </transformer>
+		                </transformers>
+		            </configuration>
+		        </execution>
+		    </executions>
+		</plugin>
+		</plugins>
+	</build>
+</project>

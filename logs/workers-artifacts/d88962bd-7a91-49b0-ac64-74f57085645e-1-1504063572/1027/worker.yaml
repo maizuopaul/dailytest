@@ -1,0 +1,4 @@
+worker-id: b87c5923-21ef-49ac-800e-26ff83e04760
+logs.users: []
+logs.groups: []
+topology.submitter.user: appuser
